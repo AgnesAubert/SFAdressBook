@@ -31,18 +31,18 @@ class Groupe
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Contact", mappedBy="groupeNomgroupe")
+     * @ORM\ManyToMany(targetEntity="Contact", mappedBy="nomgroupes")
      */
-    private $contactcontact;
+    private $contacts;
 
+   
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->contactcontact = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 
     /**
      * Get nomgroupe
@@ -78,35 +78,35 @@ class Groupe
     }
 
     /**
-     * Add contactcontact
+     * Add contacts
      *
-     * @param \Next\AddressBookBundle\Entity\Contact $contactcontact
+     * @param \Next\AddressBookBundle\Entity\Contact $contacts
      * @return Groupe
      */
-    public function addContactcontact(\Next\AddressBookBundle\Entity\Contact $contactcontact)
+    public function addContact(\Next\AddressBookBundle\Entity\Contact $contacts)
     {
-        $this->contactcontact[] = $contactcontact;
+        $this->contacts[] = $contacts;
 
         return $this;
     }
 
     /**
-     * Remove contactcontact
+     * Remove contacts
      *
-     * @param \Next\AddressBookBundle\Entity\Contact $contactcontact
+     * @param \Next\AddressBookBundle\Entity\Contact $contacts
      */
-    public function removeContactcontact(\Next\AddressBookBundle\Entity\Contact $contactcontact)
+    public function removeContact(\Next\AddressBookBundle\Entity\Contact $contacts)
     {
-        $this->contactcontact->removeElement($contactcontact);
+        $this->contacts->removeElement($contacts);
     }
 
     /**
-     * Get contactcontact
+     * Get contacts
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getContactcontact()
+    public function getContacts()
     {
-        return $this->contactcontact;
+        return $this->contacts;
     }
 }
