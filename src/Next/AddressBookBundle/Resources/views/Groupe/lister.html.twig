@@ -1,0 +1,50 @@
+{% extends "NextAddressBookBundle::base.html.twig" %}
+
+{% block title %}Liste des groupes{% endblock %}
+
+{% block menu %}
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"/>Accueil</a>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+{% endblock %}
+
+{% block contenu %}
+<h1>Liste des groupes :</h1>
+<hr>
+<div class="groupe">
+    <h2>
+        Nom du groupe 
+        <a href="#" title="Afficher les contacts"><span class="glyphicon glyphicon-user"/></a> 
+        <a href="#" title="Editer le groupe"><span class="glyphicon glyphicon-pencil"/></a>
+    </h2>
+    <div class="description">
+        <p>
+            description du groupe.
+        </p>
+    </div>
+</div>
+<hr>
+<div class="groupe">
+    <h2>
+        Nom du groupe 2 
+        <a href="#" title="Afficher les contacts"><span class="glyphicon glyphicon-user"/></a> 
+        <a href="#" title="Editer le groupe"><span class="glyphicon glyphicon-pencil"/></a>
+    </h2>
+    <div class="description">
+        <p>
+            description du groupe 2.
+        </p>
+    </div>
+</div>
+<hr>
+{% endblock %}

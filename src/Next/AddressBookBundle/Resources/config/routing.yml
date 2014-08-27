@@ -1,3 +1,11 @@
-next_address_book_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: NextAddressBookBundle:Default:index }
+next_addressbook_groupe_lister:
+    path:     /groupe/lister
+    defaults: { _controller: NextAddressBookBundle:Groupe:lister }
+
+next_addressbook_groupe_ajouter:
+    path:     /groupe/ajouter
+    defaults: { _controller: NextAddressBookBundle:Groupe:ajouter }
+
+next_addressbook_groupe_modifier:
+    path:     /groupe/modifier/{nom}
+    defaults: { _controller: NextAddressBookBundle:Groupe:modifier }
