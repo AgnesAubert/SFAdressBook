@@ -62,7 +62,7 @@ class Contact
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Groupe", inversedBy="contactcontact")
+     * @ORM\ManyToMany(targetEntity="Groupe", inversedBy="contacts")
      * @ORM\JoinTable(name="contact_has_groupe",
      *   joinColumns={
      *     @ORM\JoinColumn(name="contact_idcontact", referencedColumnName="idcontact")
@@ -72,16 +72,16 @@ class Contact
      *   }
      * )
      */
-    private $groupeNomgroupe;
+    private $nomgroupes;
 
+   
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->groupeNomgroupe = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->nomgroupes = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 
     /**
      * Get idcontact
@@ -209,35 +209,35 @@ class Contact
     }
 
     /**
-     * Add groupeNomgroupe
+     * Add nomgroupes
      *
-     * @param \Next\AddressBookBundle\Entity\Groupe $groupeNomgroupe
+     * @param \Next\AddressBookBundle\Entity\Groupe $nomgroupes
      * @return Contact
      */
-    public function addGroupeNomgroupe(\Next\AddressBookBundle\Entity\Groupe $groupeNomgroupe)
+    public function addNomgroupe(\Next\AddressBookBundle\Entity\Groupe $nomgroupes)
     {
-        $this->groupeNomgroupe[] = $groupeNomgroupe;
+        $this->nomgroupes[] = $nomgroupes;
 
         return $this;
     }
 
     /**
-     * Remove groupeNomgroupe
+     * Remove nomgroupes
      *
-     * @param \Next\AddressBookBundle\Entity\Groupe $groupeNomgroupe
+     * @param \Next\AddressBookBundle\Entity\Groupe $nomgroupes
      */
-    public function removeGroupeNomgroupe(\Next\AddressBookBundle\Entity\Groupe $groupeNomgroupe)
+    public function removeNomgroupe(\Next\AddressBookBundle\Entity\Groupe $nomgroupes)
     {
-        $this->groupeNomgroupe->removeElement($groupeNomgroupe);
+        $this->nomgroupes->removeElement($nomgroupes);
     }
 
     /**
-     * Get groupeNomgroupe
+     * Get nomgroupes
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGroupeNomgroupe()
+    public function getNomgroupes()
     {
-        return $this->groupeNomgroupe;
+        return $this->nomgroupes;
     }
 }
