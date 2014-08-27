@@ -1,3 +1,13 @@
-next_address_book_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: NextAddressBookBundle:Default:index }
+next_address_book_lister:
+    path:     /societe/lister
+    defaults: { _controller: NextAddressBookBundle:Societe:lister }
+
+next_address_book_ajouter:
+    path:     /societe/ajouter
+    defaults: { _controller: NextAddressBookBundle:Societe:ajouter }
+
+next_address_book_modifier:
+    path:     /societe/modifier/{id}
+    defaults: { _controller: NextAddressBookBundle:Societe:modifier }
+    requirements:
+        id: "[1-9][0-9]*"

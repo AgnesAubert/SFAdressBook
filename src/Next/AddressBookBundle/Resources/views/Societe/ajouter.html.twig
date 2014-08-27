@@ -1,0 +1,69 @@
+{% extends "NextAddressBookBundle::base.html.twig" %}
+{% import "NextAddressBookBundle::bootstrap.html.twig" as bootstrap %} 
+
+{% block title %}Ajouter une société - Address Book{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2-bootstrap.css')}}">
+    <style></style>   
+{% endblock %}
+{% block javascript %}
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.js')}}"></script>
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2_locale_fr.js')}}"></script>
+
+{% endblock %}
+{% block menu %}
+    <div class="container">
+        <nav class="navbar navbar-default" >
+            <a class="navbar-brand" href="#" ><span class="glyphicon glyphicon-home"></span></a>
+            <a href="#">Choisir la société</a>
+
+        </nav>
+        <h4>Ajouter une société </h4>
+        
+    </div>   
+{% endblock %} 
+
+{% block contenu %}
+       <form role="form" action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label >Nom</label>
+                <input type="text" name="nom" class="form-control"  placeholder="Nom" autofocus required>
+            </div>
+            <div class="form-group">
+                <label >Adresse</label>
+                <input type="text" name="adresse" class="form-control"  placeholder="Adresse" >
+            </div>
+            <div class="form-group">
+                <label >Code postal</label>
+                <input type="text" name="cp" class="form-control"  placeholder="Code postal" pattern="[0-9]{5}" required>
+            </div>
+            <div class="form-group">
+                <label >Ville</label>
+                <input type="text" name="ville" class="form-control"  placeholder="Ville">
+            </div>
+            <button type="submit" class="btn btn-primary">
+                Ajouter 
+                <span class="glyphicon glyphicon-plus"</span>
+            </button>
+            <button type="button" class="btn btn-primary">
+                Supprimer 
+                <span class="glyphicon glyphicon-minus"</span>
+            </button>
+        </form>
+
+    {#{{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
+    {{bootstrap.formGroup(form.nom, 'Nom')}}
+    {{bootstrap.formGroup(form.adresse, 'Adresse')}}
+    {{bootstrap.formGroup(form.cp, 'Code postal')}}
+    {{bootstrap.formGroup(form.ville, 'Ville')}}
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            {{form_widget(form.save, {'attr': {'class':'btn btn-default'} })}}
+        </div>
+    </div> 
+    {{form_end(form)}} #}
+{% endblock %}
+
