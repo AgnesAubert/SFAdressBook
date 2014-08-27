@@ -1,3 +1,8 @@
 next_address_book_homepage:
     path:     /hello/{name}
     defaults: { _controller: NextAddressBookBundle:Default:index }
+    
+    next_address_book_lister:
+    path:     /
+    defaults: { _controller: NextAddressBookBundle:Contact:lister }
+
