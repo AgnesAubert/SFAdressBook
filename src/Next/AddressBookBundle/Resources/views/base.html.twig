@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{{titrePage|default('Address Book')}}{% endblock %}</title>
+        <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/css/bootstrap.css')}}">
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+    {% block menu %} {% endblock %}
+     <div class="container">
+        {% for message in app.session.flashbag.get("success") %}
+            <div class="alert alert-success">
+                <button data-dismiss="alert" class="close" type="button">
+                    <span aria-hidden="true">x</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                {{message}}
+            </div>
+            {% endfor %}
+        {% block contenu %} {% endblock %}
+    </div>
+    <script src = "{{asset('bundles/nextaddressbook/js/jquery-1.11.1.js')}}"></script>
+    <script src="{{asset('bundles/nextaddressbook/js/bootstrap.js')}}"></script>
+{% block javascript %}{% endblock %}
+</body>
+</html>
+
