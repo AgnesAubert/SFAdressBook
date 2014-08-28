@@ -1,0 +1,42 @@
+{% extends "NextAddressBookBundle::base.html.twig" %}
+
+{#{% block title %}NextAddressBookBundle:Contact:lister{% endblock %}#}
+{% block title %}Liste de Contacts{% endblock %}
+{% block contenu %}
+     {% for message in app.session.flashbag.get("success") %}
+    <div class=""alert alert-success">
+    </div>
+    {% endfor %}
+   <div class="table-responsive">
+   <table class="table">
+    <thead><tr>
+            <td>NOM</td>
+           <td>PRENOM</td>      
+            <td>EMAIL</td>   
+           <td>TELEPHONE</td>
+    </tr></thead>
+<tbody>
+    
+       
+{% for contact in listeContacts %} 
+              
+  
+    <tr>
+          <td>{{contact.nom}}</td>
+           <td>{{contact.prenom}}</td>      
+            <td>{{contact.email}}</td>   
+           <td>{{contact.tel}}</td>
+       {#    <td> <a href="{{path('next_addressbook_contact_modifier',{'id':contact.idcontact})}}">Modifier</a></td>
+<td> <a href="{{path('next_addressbook_contact_supprimer',{'id':contact.idcontact})}}">Supprimer</a></td>
+{% else %}#}
+<tr><td>Aucun contact n'a été trouvé.</td></tr>
+
+ {% endfor %} 
+</tbody>
+        </table>
+     
+     <p><a href="{{path('next_addressbook_contact_ajouter')}}">Ajouter un contact</a>
+<p>
+   </div>
+{% endblock %}
+

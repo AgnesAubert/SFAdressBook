@@ -1,0 +1,13 @@
+Next\AddressBookBundle\Entity\Contact:
+    properties:
+        nom:
+            - NotBlank:
+                message: "Le nom est obligatoire"
+            - Length:
+                max: 45 
+                maxMessage: "Le nom ne doit pas dépasser 45 caractères"
+        prenom:
+            - NotBlank: 
+                message: "Le prenom est obligatoire"
+                
+
