@@ -12,6 +12,12 @@ services:
         class: Next\AddressBookBundle\Form\ContactForm
         tags:
             - { name: form.type, alias: ContactForm }
+    next_addressbook.societe:
+        class: Next\AddressBookBundle\Entity\Societe
+    next_addressbook.societe.form:
+        class: Next\AddressBookBundle\Form\SocieteForm
+        tags:
+            - { name: form.type, alias: SocieteForm }
     twig.extension.text:
         class: Twig_Extensions_Extension_Text 
         tags:

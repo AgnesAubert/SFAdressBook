@@ -9,7 +9,7 @@ class SocieteForm extends \Symfony\Component\Form\AbstractType {
                 ->add("adresse")
                 ->add("cp")
                 ->add("ville")
-                ->add("save", "submit");
+                ->add("ajout", "submit");
         
     }
     
