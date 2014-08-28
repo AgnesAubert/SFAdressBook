@@ -1,0 +1,32 @@
+{% extends "NextAddressBookBundle::base.html.twig" %}
+{% import "NextAddressBookBundle::bootstrap.html.twig" as bootstrap %}
+{% block title %}Ajouter un contact{% endblock %}
+
+{% block contenu %}
+    <h1>Ajouter un contact </h1>
+   
+    {{form_start(form,{'attr':{'class':'form-horizontal','role':'form','novalidate':''}})}}
+  {{bootstrap.formGroup(form.nom,'Nom Contact')}}
+    
+    {{bootstrap.formGroup(form.prenom,'Prénom Contact')}}
+    {{bootstrap.formGroup(form.tel,'Téléphone')}}
+     {{bootstrap.formGroup(form.email,'Email')}}
+  {#  {{bootstrap.formGroup(form.societe,'Societes')}}
+     {{bootstrap.formGroup(form.group,'Groupes')}}#}
+    
+
+ <div class="form-group">
+
+
+        <div class="col-sm-offset-2 col-sm-10">
+
+            {{form_widget(form.save,{'attr':{'class':'btn btn-default'}})}}
+        </div>
+    </div>
+{{form_end(form) }}
+{% endblock %}
+{#
+{% block contenu %}
+<h1>Welcome to the Contact:ajouter page</h1>
+{% endblock %}
+#}

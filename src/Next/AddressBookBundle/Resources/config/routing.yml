@@ -1,8 +1,30 @@
-next_address_book_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: NextAddressBookBundle:Default:index }
-    
-    next_address_book_lister:
+
+next_addressbook_contact_details:
+    path:     /contact/{id}
+    defaults: { _controller: NextJobsBundle:Contact:details }
+    requirements: 
+        id: "[1-9][0-9]*"
+
+next_addressbook_contact_lister:
     path:     /
     defaults: { _controller: NextAddressBookBundle:Contact:lister }
 
+next_addressbook_contact_ajouter:
+    path:     /contact/ajouter
+    defaults: { _controller: NextAddressBookBundle:Contact:ajouter }
+
+next_addressbook_contact_modifier:
+    path:     /contact/modifier/{idcontact}
+    defaults: { _controller: NextAddressBookBundle:Contact:modifier }
+
+next_addressbook_contact_supprimer:
+    path:     /contact/supprimer/{idcontact}
+    defaults: { _controller: NextAddressBookBundle:Contact:supprimer }
+
+next_addressbook_contact_lister_par_societe:
+    path:     /contact/societe/{idsociete}
+    defaults: { _controller: NextAddressBookBundle:Contact:listerParSociete }
+
+next_addressbook_contact_lister_par_groupe:
+    path:     /contact/groupe/{nomgroupe}
+    defaults: { _controller: NextAddressBookBundle:Contact:listerParGroupe }
