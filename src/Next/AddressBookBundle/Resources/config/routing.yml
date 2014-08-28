@@ -28,19 +28,21 @@ next_addressbook_contact_lister_par_groupe:
     path:     /contact/groupe/{nomgroupe}
     defaults: { _controller: NextAddressBookBundle:Contact:listerParGroupe }
 
-next_address_book_lister:
+next_address_book_societe_lister:
     path:     /societe/lister
     defaults: { _controller: NextAddressBookBundle:Societe:lister }
 
-next_address_book_ajouter:
+next_address_book_societe_ajouter:
     path:     /societe/ajouter
     defaults: { _controller: NextAddressBookBundle:Societe:ajouter }
 
-next_address_book_modifier:
+next_address_book_societe_modifier:
     path:     /societe/modifier/{id}
     defaults: { _controller: NextAddressBookBundle:Societe:modifier }
     requirements:
-        id: "[1-9][0-9]*"next_addressbook_groupe_lister:
+        id: "[1-9][0-9]*"
+
+next_addressbook_groupe_lister:
     path:     /groupe/lister
     defaults: { _controller: NextAddressBookBundle:Groupe:lister }
 
