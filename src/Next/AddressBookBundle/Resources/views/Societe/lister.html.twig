@@ -1,0 +1,53 @@
+{% extends "NextAddressBookBundle::base.html.twig" %}
+{% import "NextAddressBookBundle::bootstrap.html.twig" as bootstrap %} 
+
+{% block title %}Liste des Sociétés - Address Book{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2-bootstrap.css')}}">
+    <style></style>   
+{% endblock %}
+{% block javascript %}
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.js')}}"></script>
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2_locale_fr.js')}}"></script>
+
+{% endblock %}
+{% block menu %}
+    <div class="container">
+        <nav class="navbar navbar-default" >
+            <a class="navbar-brand" href="#" ><span class="glyphicon glyphicon-home"></span></a>
+            <a href="#">Choisir la société</a>
+
+        </nav>
+        <h4>Liste des sociétés : </h4>
+
+    </div>   
+{% endblock %} 
+
+{% block contenu %}
+    <hr> 
+    <div>
+        <p>
+        Nom 1 
+        <a href="#" class="glyphicon glyphicon-user"></a> 
+        <a href="#" class="glyphicon glyphicon-pencil"></a> 
+        </p>
+        <p>Adresse 1</p>
+        <p>code postal</p>
+        <p>Ville</p>
+        
+    </div>
+    <hr> 
+    <div>
+        Nom 2 
+        <a href="#" class="glyphicon glyphicon-user"></a> 
+        <a href="#" class="glyphicon glyphicon-pencil"></a> 
+        </p>
+        <p>Adresse 2</p>
+        <p>code postal</p>
+        <p>Ville</p>
+        <hr> 
+    </div> 
+{% endblock %}
+
