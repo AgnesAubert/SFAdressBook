@@ -18,6 +18,12 @@ services:
         class: Next\AddressBookBundle\Form\SocieteForm
         tags:
             - { name: form.type, alias: SocieteForm }
+    next_addressbook.groupe:
+        class: Next\AddressBookBundle\Entity\Groupe
+    next_addressbook.groupe.form:
+        class: Next\AddressBookBundle\Form\GroupeForm
+        tags:
+            - { name: form.type, alias: GroupeForm }        
     twig.extension.text:
         class: Twig_Extensions_Extension_Text 
         tags:

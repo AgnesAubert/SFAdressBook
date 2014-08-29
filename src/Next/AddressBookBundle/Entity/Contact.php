@@ -57,7 +57,7 @@ class Contact
      *   @ORM\JoinColumn(name="idsociete", referencedColumnName="idsociete")
      * })
      */
-    private $idsociete;
+    private $societe;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -185,30 +185,15 @@ class Contact
         return $this->tel;
     }
 
-    /**
-     * Set idsociete
-     *
-     * @param \Next\AddressBookBundle\Entity\Societe $idsociete
-     * @return Contact
-     */
-    public function setIdsociete(\Next\AddressBookBundle\Entity\Societe $idsociete = null)
-    {
-        $this->idsociete = $idsociete;
-
-        return $this;
+    public function getSociete() {
+        return $this->societe;
     }
 
-    /**
-     * Get idsociete
-     *
-     * @return \Next\AddressBookBundle\Entity\Societe 
-     */
-    public function getIdsociete()
-    {
-        return $this->idsociete;
+    public function setSociete(\Societe $societe) {
+        $this->societe = $societe;
     }
 
-    /**
+        /**
      * Add nomgroupes
      *
      * @param \Next\AddressBookBundle\Entity\Groupe $nomgroupes

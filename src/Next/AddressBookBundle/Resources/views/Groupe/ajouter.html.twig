@@ -1,6 +1,18 @@
 {% extends "NextAddressBookBundle::base.html.twig" %}
+{% import "NextAddressBookBundle::bootstrap.html.twig" as bootstrap %} 
 
-{% block title %}Editer les groupes{% endblock %}
+{% block title %}Ajouter un groupe - Address Book{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2-bootstrap.css')}}">
+    <style></style>   
+{% endblock %}
+{% block javascript %}
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.js')}}"></script>
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2_locale_fr.js')}}"></script>
+
+{% endblock %}
 
 {% block menu %}
     <nav class="navbar navbar-default" role="navigation">
@@ -12,30 +24,55 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"/>Accueil</a>
+                <a class="navbar-brand" href="{{path('next_addressbook_contact_lister')}}"><span class="glyphicon glyphicon-home"/>Accueil</a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="." class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"/></a>
+                        <a href="." class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"/></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Nouveau groupe</a></li>
-                            <li><a href="#">nom groupe 1</a></li>
-                            <li><a href="#">nom Groupe 2</a></li>
-                            <li><a href="#">etc...</a></li>
+                            <li><a href="{{path('next_addressbook_groupe_ajouter')}}">Nouveau groupe</a></li>
+                            <li class="divider"></li>
+                                {% for groupe in listeGroupes %}
+                                <li><a href="{{path('next_addressbook_groupe_modifierMenu',{'nomgroupe': groupe.nomgroupe|lower})}}">{{groupe.nomgroupe}}</a></li>
+                                {% endfor %}
+
                         </ul>
                     </li>
                 </ul>
+                <a class="navbar-brand" href="{{path('next_addressbook_groupe_lister')}}"><span class="glyphicon glyphicon-list"/></a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
-{% endblock %}
+{% endblock %} 
 
 {% block contenu %}
-<h1>Editer les groupes :</h1>
-<form method="post">
-    <p>Nom : <input type="text" placeholder="Nom du groupe."/></p>
-    <p>Description : <textarea placeholder="Descritpion du groupe."></textarea></p>
-    <p><button type="submit" class="btn btn-primary">Valider</button> <button type="button" disabled="true" class="btn btn-primary">Supprimer</button></p>
-</form>
+ <div class="container">
+        {% if (modifier is defined) %}
+            <h4>modifier un groupe </h4>
+        {% else %} 
+            <h4>Ajouter un groupe </h4>
+        {% endif %}
+    </div>
+    {{form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': ''} })}}
+    
+        {{bootstrap.formGroup(form.nomgroupe, 'Nom')}}
+        {{bootstrap.formGroup(form.description, 'Description')}}
+    
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+           
+            <button type="submit" class="btn btn-primary">
+                {% if (modifier is defined) %}
+                    <span class="glyphicon glyphicon-ok"/> Modifier
+                {% else %} 
+                    <span class="glyphicon glyphicon-plus"/> Ajouter
+                {% endif %}
+            </button>
+        </div>
+    </div> 
+    {{form_end(form)}}
 {% endblock %}
+
+

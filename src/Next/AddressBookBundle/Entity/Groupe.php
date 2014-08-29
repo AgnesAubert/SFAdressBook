@@ -2,6 +2,8 @@
 
 namespace Next\AddressBookBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,18 +12,21 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="groupe", uniqueConstraints={@ORM\UniqueConstraint(name="nomgroupe_UNIQUE", columns={"nomgroupe"})})
  * @ORM\Entity
  */
-class Groupe
-{
+class Groupe {
+
     /**
      * @var string
      *
      * @ORM\Column(name="nomgroupe", type="string", length=30, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $nomgroupe;
 
-    /**
+    /*     * public  function setNomgroupe($nomgroupe) {
+      $this->nomgroupe = $nomgroupe;
+      }
+
+
      * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=true)
@@ -29,19 +34,17 @@ class Groupe
     private $description;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @ORM\ManyToMany(targetEntity="Contact", mappedBy="nomgroupes")
      */
     private $contacts;
 
-   
     /**
      * Constructor
      */
-    public function __construct()
-    {
-        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
+    public function __construct() {
+        $this->contacts = new ArrayCollection();
     }
 
     /**
@@ -49,9 +52,14 @@ class Groupe
      *
      * @return string 
      */
-    public function getNomgroupe()
-    {
+    public function getNomgroupe() {
         return $this->nomgroupe;
+    }
+
+    public function setNomgroupe($nomgroupe) {
+        $this->nomgroupe = $nomgroupe;
+
+        return $this;
     }
 
     /**
@@ -60,8 +68,7 @@ class Groupe
      * @param string $description
      * @return Groupe
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -72,19 +79,17 @@ class Groupe
      *
      * @return string 
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
     /**
      * Add contacts
      *
-     * @param \Next\AddressBookBundle\Entity\Contact $contacts
+     * @param Contact $contacts
      * @return Groupe
      */
-    public function addContact(\Next\AddressBookBundle\Entity\Contact $contacts)
-    {
+    public function addContact(Contact $contacts) {
         $this->contacts[] = $contacts;
 
         return $this;
@@ -93,20 +98,23 @@ class Groupe
     /**
      * Remove contacts
      *
-     * @param \Next\AddressBookBundle\Entity\Contact $contacts
+     * @param Contact $contacts
      */
-    public function removeContact(\Next\AddressBookBundle\Entity\Contact $contacts)
-    {
+    public function removeContact(Contact $contacts) {
         $this->contacts->removeElement($contacts);
     }
 
     /**
      * Get contacts
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection 
      */
-    public function getContacts()
-    {
+    public function getContacts() {
         return $this->contacts;
     }
+
+    public function __toString() {
+        return $this->nomgroupe;
+    }
+
 }

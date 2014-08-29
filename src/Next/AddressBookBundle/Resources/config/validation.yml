@@ -17,5 +17,12 @@ Next\AddressBookBundle\Entity\Societe:
             - Length:
                 max: 45 
                 maxMessage: "Le nom ne doit pas dépasser 45 caractères"
-              
+Next\AddressBookBundle\Entity\Groupe:
+    properties:
+        nomgroupe:
+            - NotBlank:
+                message: "Le nom est obligatoire"
+            - Length:
+                max: 30 
+                maxMessage: "Le nom ne doit pas dépasser 30 caractères"              
 

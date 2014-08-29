@@ -41,6 +41,12 @@ next_addressbook_societe_modifier:
     defaults: { _controller: NextAddressBookBundle:Societe:modifier }
     requirements:
         id: "[1-9][0-9]*"
+        
+next_addressbook_societe_modifierMenu:
+    path:     /societe/modifierMenu/{id}
+    defaults: { _controller: NextAddressBookBundle:Societe:modifierMenu }
+    requirements:
+        id: "[1-9][0-9]*"
 
 next_addressbook_societe_supprimer:
     path:     /societe/supprimer/{id}
@@ -57,5 +63,13 @@ next_addressbook_groupe_ajouter:
     defaults: { _controller: NextAddressBookBundle:Groupe:ajouter }
 
 next_addressbook_groupe_modifier:
-    path:     /groupe/modifier/{nom}
+    path:     /groupe/modifier/{nomgroupe}
     defaults: { _controller: NextAddressBookBundle:Groupe:modifier }
+
+next_addressbook_groupe_modifierMenu:
+    path:     /groupe/modifierMenu/{nomgroupe}
+    defaults: { _controller: NextAddressBookBundle:Groupe:modifierMenu }
+    
+next_addressbook_groupe_supprimer:
+    path:     /groupe/supprimer/{nomgroupe}
+    defaults: { _controller: NextAddressBookBundle:Groupe:supprimer }
