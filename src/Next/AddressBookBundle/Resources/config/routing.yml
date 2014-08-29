@@ -63,5 +63,13 @@ next_addressbook_groupe_ajouter:
     defaults: { _controller: NextAddressBookBundle:Groupe:ajouter }
 
 next_addressbook_groupe_modifier:
-    path:     /groupe/modifier/{nom}
+    path:     /groupe/modifier/{nomgroupe}
     defaults: { _controller: NextAddressBookBundle:Groupe:modifier }
+
+next_addressbook_groupe_modifierMenu:
+    path:     /groupe/modifierMenu/{nomgroupe}
+    defaults: { _controller: NextAddressBookBundle:Groupe:modifierMenu }
+    
+next_addressbook_groupe_supprimer:
+    path:     /groupe/supprimer/{nomgroupe}
+    defaults: { _controller: NextAddressBookBundle:Groupe:supprimer }

@@ -20,6 +20,7 @@ class SocieteController extends Controller {
     }
 
     public function ajouterAction(Request $request) {
+        
         $societe = $this->get("next_addressbook.societe");
         $form = $this->createForm("SocieteForm", $societe);
 

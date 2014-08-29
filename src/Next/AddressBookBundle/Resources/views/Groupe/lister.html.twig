@@ -1,6 +1,18 @@
 {% extends "NextAddressBookBundle::base.html.twig" %}
+{% import "NextAddressBookBundle::bootstrap.html.twig" as bootstrap %} 
 
-{% block title %}Liste des groupes{% endblock %}
+{% block title %}Liste des Groupes - Address Book{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2-bootstrap.css')}}">
+    <style></style>   
+{% endblock %}
+{% block javascript %}
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.js')}}"></script>
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2_locale_fr.js')}}"></script>
+
+{% endblock %}
 
 {% block menu %}
     <nav class="navbar navbar-default" role="navigation">
@@ -12,39 +24,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"/>Accueil</a>
+                <a class="navbar-brand" href="{{path('next_addressbook_contact_lister')}}"><span class="glyphicon glyphicon-home"/>Accueil</a>
+                <a class="navbar-brand" href="{{path('next_addressbook_groupe_ajouter')}}"><span class="glyphicon glyphicon-plus"/></a>
             </div>
-        </div><!-- /.container-fluid -->
+     </div>  
     </nav>
-{% endblock %}
+{% endblock %} 
 
 {% block contenu %}
-<h1>Liste des groupes :</h1>
-<hr>
-<div class="groupe">
-    <h2>
-        Nom du groupe 
-        <a href="#" title="Afficher les contacts"><span class="glyphicon glyphicon-user"/></a> 
-        <a href="#" title="Editer le groupe"><span class="glyphicon glyphicon-pencil"/></a>
-    </h2>
-    <div class="description">
-        <p>
-            description du groupe.
-        </p>
-    </div>
-</div>
-<hr>
-<div class="groupe">
-    <h2>
-        Nom du groupe 2 
-        <a href="#" title="Afficher les contacts"><span class="glyphicon glyphicon-user"/></a> 
-        <a href="#" title="Editer le groupe"><span class="glyphicon glyphicon-pencil"/></a>
-    </h2>
-    <div class="description">
-        <p>
-            description du groupe 2.
-        </p>
-    </div>
-</div>
-<hr>
+<h2>Liste des groupes : </h2>
+    {% for groupe in listeGroupes %}
+        <div class="groupe">
+            <p>
+                {{groupe.nomgroupe}} 
+                <a href="{{path('next_addressbook_contact_lister')}}" class="glyphicon glyphicon-user"></a> 
+                <a href="{{path('next_addressbook_groupe_modifier', {'nomgroupe':groupe.nomgroupe})}}" class="glyphicon glyphicon-pencil"></a> 
+                <a href="{{path('next_addressbook_groupe_supprimer', {'nomgroupe':groupe.nomgroupe})}}" class="glyphicon glyphicon-remove"></a>
+            </p>
+            <p>
+                {{groupe.description}}
+            </p>
+            <hr> 
+        </div>
+    {% endfor %}
+</div> 
 {% endblock %}
