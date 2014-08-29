@@ -19,7 +19,7 @@ class ContactController extends Controller
 
     public function ajouterAction(Request $request)
     {
-        $contact = $this->get("next_AddressBook.contact");
+       $contact = $this->get("next_AddressBook.contact");
        $form = $this->createForm("ContactForm", $contact);
        $form->handleRequest($request);
        
