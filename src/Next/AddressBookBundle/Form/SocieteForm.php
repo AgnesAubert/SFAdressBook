@@ -8,8 +8,8 @@ class SocieteForm extends \Symfony\Component\Form\AbstractType {
         $builder->add("nom")
                 ->add("adresse")
                 ->add("cp")
-                ->add("ville")
-                ->add("ajout", "submit");
+                ->add("ville");
+                //->add("ajout", "submit");
         
     }
     

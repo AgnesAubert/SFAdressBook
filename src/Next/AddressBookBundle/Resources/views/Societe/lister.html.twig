@@ -14,40 +14,45 @@
 
 {% endblock %}
 {% block menu %}
-    <div class="container">
-        <nav class="navbar navbar-default" >
-            <a class="navbar-brand" href="#" ><span class="glyphicon glyphicon-home"></span></a>
-            <a href="#">Choisir la société</a>
-
-        </nav>
-        <h4>Liste des sociétés : </h4>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{path('next_addressbook_contact_lister')}}"><span class="glyphicon glyphicon-home"/>Accueil</a>
+                <a class="navbar-brand" href="{{path('next_addressbook_societe_ajouter')}}"><span class="glyphicon glyphicon-plus"/></a>
+            </div>
+       
 
     </div>   
 {% endblock %} 
 
 {% block contenu %}
-    <hr> 
-    <div>
-        <p>
-        Nom 1 
-        <a href="#" class="glyphicon glyphicon-user"></a> 
-        <a href="#" class="glyphicon glyphicon-pencil"></a> 
-        </p>
-        <p>Adresse 1</p>
-        <p>code postal</p>
-        <p>Ville</p>
-        
-    </div>
-    <hr> 
-    <div>
-        Nom 2 
-        <a href="#" class="glyphicon glyphicon-user"></a> 
-        <a href="#" class="glyphicon glyphicon-pencil"></a> 
-        </p>
-        <p>Adresse 2</p>
-        <p>code postal</p>
-        <p>Ville</p>
-        <hr> 
-    </div> 
+     <h2>Liste des sociétés : </h2>
+    {% for societe in listeSocietes %}
+        <div class="societe">
+            <p>
+                {{societe.nom}} 
+                <a href="#" class="glyphicon glyphicon-user"></a> 
+                <a href="{{path('next_addressbook_societe_modifier', {'id':societe.idsociete})}}" class="glyphicon glyphicon-pencil"></a> 
+                <a href="{{path('next_addressbook_societe_supprimer', {'id':societe.idsociete})}}" class="glyphicon glyphicon-remove"></a>
+            </p>
+            <p>
+                {{societe.adresse}}
+            </p>
+            <p>
+                {{societe.cp}}
+            </p>
+            <p>
+                {{societe.ville}}
+            </p>
+            <hr> 
+        </div>
+    {% endfor %}
+</div> 
 {% endblock %}
 
