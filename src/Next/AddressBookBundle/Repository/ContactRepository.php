@@ -11,4 +11,13 @@ class ContactRepository extends \Doctrine\ORM\EntityRepository{
         $query->setParameter(":catParam",$groupe);
         return $query->getResult();
     }
+    public function findSociete($societe) {
+        $dql = "SELECT a "
+                ."FROM NextAddressBookBundle:Contact a "
+                ."JOIN a.societes c "
+                ."WHERE c.nom = :catParam";
+        $query = $this->_em->createQuery( $dql);
+        $query->setParameter(":catParam",$societe);
+        return $query->getResult();
+    }
 }

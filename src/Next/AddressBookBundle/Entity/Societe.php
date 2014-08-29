@@ -152,4 +152,9 @@ class Societe
     {
         return $this->ville;
     }
+    /*
+    public function __get($name) {
+        return $this->nom;
+    }
+*/
 }

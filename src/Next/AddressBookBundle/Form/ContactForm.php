@@ -13,6 +13,7 @@ class ContactForm extends AbstractType
                 ->add("prenom")
                 ->add("email")
                 ->add("tel")
+                ->add("societe")
                 ->add("save","submit");
     }
 
