@@ -70,7 +70,30 @@ class SocieteController extends Controller {
             "listeSocietes" => $listeSocietes
         ));
     }
+public function modifierMenuAction(Societe $societe, Request $request) {
 
+        $form = $this->createForm(new SocieteForm(), $societe);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($societe);
+            $em->flush();
+
+            $this->get("session")->getFlashBag()->add("success", "Les modifications ont été prises en compte");
+                  }
+
+        $repo = $this->getDoctrine()->getRepository('NextAddressBookBundle:Societe');
+
+        $listeSocietes = $repo->findAll();
+
+        return $this->render('NextAddressBookBundle:Societe:ajouter.html.twig', array(
+            "form" => $form->createView(),
+            "modifier" => "ok",
+            "listeSocietes" => $listeSocietes
+        ));
+    }
     public function supprimerAction($id) {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('NextAddressBookBundle:Societe')->find($id);

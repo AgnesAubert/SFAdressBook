@@ -33,7 +33,7 @@
                             <li><a href="{{path('next_addressbook_societe_ajouter')}}">Nouvelle Société</a></li>
                             <li class="divider"></li>
                                 {% for societe in listeSocietes %}
-                                <li><a href="{{path('next_addressbook_societe_modifier',{'id':societe.idsociete}, {'societe': societe.nom|lower})}}">{{societe.nom}}</a></li>
+                                <li><a href="{{path('next_addressbook_societe_modifierMenu',{'id':societe.idsociete}, {'societe': societe.nom|lower})}}">{{societe.nom}}</a></li>
                                 {% endfor %}
 
                         </ul>

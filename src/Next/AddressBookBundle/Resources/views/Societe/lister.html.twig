@@ -26,9 +26,8 @@
                 <a class="navbar-brand" href="{{path('next_addressbook_contact_lister')}}"><span class="glyphicon glyphicon-home"/>Accueil</a>
                 <a class="navbar-brand" href="{{path('next_addressbook_societe_ajouter')}}"><span class="glyphicon glyphicon-plus"/></a>
             </div>
-       
-
-    </div>   
+     </div>  
+    </nav>
 {% endblock %} 
 
 {% block contenu %}
@@ -37,7 +36,7 @@
         <div class="societe">
             <p>
                 {{societe.nom}} 
-                <a href="#" class="glyphicon glyphicon-user"></a> 
+                <a href="{{path('next_addressbook_contact_lister')}}" class="glyphicon glyphicon-user"></a> 
                 <a href="{{path('next_addressbook_societe_modifier', {'id':societe.idsociete})}}" class="glyphicon glyphicon-pencil"></a> 
                 <a href="{{path('next_addressbook_societe_supprimer', {'id':societe.idsociete})}}" class="glyphicon glyphicon-remove"></a>
             </p>
