@@ -22,11 +22,8 @@ class Groupe {
      */
     private $nomgroupe;
 
-    /*     * public  function setNomgroupe($nomgroupe) {
-      $this->nomgroupe = $nomgroupe;
-      }
-
-
+      
+     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=true)
