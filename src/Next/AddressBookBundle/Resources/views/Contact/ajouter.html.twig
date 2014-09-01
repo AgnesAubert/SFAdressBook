@@ -2,8 +2,64 @@
 {% import "NextAddressBookBundle::bootstrap.html.twig" as bootstrap %}
 {% block title %}Ajouter un contact{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2-bootstrap.css')}}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2.js')}}"></script>
+    <script src="{{asset('bundles/nextaddressbook/js/select2-3.5.1/select2_locale_fr.js')}}"></script>
+{#
+    <script>
+        $("#ContactForm_groupes").select2({
+            placeholder: 'Selectionnez une ou plusieurs contacts'
+
+        });
+    </script>
+#}
+{% endblock %}
+
+{% block menu %}
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{path('next_addressbook_contact_lister')}}"><span class="glyphicon glyphicon-home"/>Accueil</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="." class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"/></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{path('next_addressbook_contact_ajouter')}}">Nouveau Contact</a></li>
+                            <li class="divider"></li>
+                                {% for contact in listeContacts %}
+                                <li><a href="{{path('next_addressbook_contact_modifierMenu',{'id':contact.idcontact}, {'contact': contact.nom|lower})}}">{{contact.nom}}</a></li>
+                                {% endfor %}
+
+                        </ul>
+                    </li>
+                </ul>
+                <a class="navbar-brand" href="{{path('next_addressbook_societe_lister')}}"><span class="glyphicon glyphicon-list"/></a>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+{% endblock %}
+
 {% block contenu %}
-    <h1>Ajouter un contact </h1>
+    <div class="container">
+        {% if (modifier is defined) %}
+            <h3><font color="red">Modifier une société </font> </h3>
+        {% else %} 
+            <h3>Ajouter une société </h3>
+        {% endif %}
+    </div>
    
     {{form_start(form,{'attr':{'class':'form-horizontal','role':'form','novalidate':''}})}}
   {{bootstrap.formGroup(form.nom,'Nom Contact')}}
@@ -11,8 +67,8 @@
     {{bootstrap.formGroup(form.prenom,'Prénom Contact')}}
     {{bootstrap.formGroup(form.tel,'Téléphone')}}
      {{bootstrap.formGroup(form.email,'Email')}}
-  {#  {{bootstrap.formGroup(form.societe,'Societes')}}
-     {{bootstrap.formGroup(form.group,'Groupes')}}#}
+    {{bootstrap.formGroup(form.societe,'Société')}}
+     {{bootstrap.formGroup(form.nomgroupes,'Groupes')}}
     
 
  <div class="form-group">
@@ -20,7 +76,15 @@
 
         <div class="col-sm-offset-2 col-sm-10">
 
-            {{form_widget(form.save,{'attr':{'class':'btn btn-default'}})}}
+          {#  {{form_widget(form.save,{'attr':{'class':'btn btn-default'}})}} #}
+          <button type="submit" class="btn btn-primary">
+                {% if (modifier is defined) %}
+                    <span class="label label-warning">
+                    <span class="glyphicon glyphicon-ok"/> Modifier
+                {% else %} 
+                    <span class="glyphicon glyphicon-plus"/> Ajouter
+                {% endif %}
+            </button>        
         </div>
     </div>
 {{form_end(form) }}
