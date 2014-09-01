@@ -13,15 +13,21 @@ next_addressbook_contact_ajouter:
     defaults: { _controller: NextAddressBookBundle:Contact:ajouter }
 
 next_addressbook_contact_modifier:
-    path:     /contact/modifier/{idcontact}
+    path:     /contact/modifier/{id}
     defaults: { _controller: NextAddressBookBundle:Contact:modifier }
 
+next_addressbook_contact_modifierMenu:
+    path:     /contact/modifierMenu/{id}
+    defaults: { _controller: NextAddressBookBundle:Contact:modifierMenu }
+    requirements:
+        id: "[1-9][0-9]*"        
 next_addressbook_contact_supprimer:
-    path:     /contact/supprimer/{idcontact}
+    path:     /contact/supprimer/{id}
     defaults: { _controller: NextAddressBookBundle:Contact:supprimer }
-
+    requirements:
+        id: "[1-9][0-9]*"   
 next_addressbook_contact_lister_par_societe:
-    path:     /contact/societe/{idsociete}
+    path:     /contact/societe/{societe}
     defaults: { _controller: NextAddressBookBundle:Contact:listerParSociete }
 
 next_addressbook_contact_lister_par_groupe:

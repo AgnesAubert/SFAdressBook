@@ -189,7 +189,7 @@ class Contact
         return $this->societe;
     }
 
-    public function setSociete(\Societe $societe) {
+    public function setSociete(Societe $societe) {
         $this->societe = $societe;
     }
 

@@ -1,4 +1,4 @@
-next_address_book:
+next_addressbook:
     resource: "@NextAddressBookBundle/Resources/config/routing.yml"
     prefix:   /
 

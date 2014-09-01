@@ -16,13 +16,23 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
+                        
+                    
                         <li class="dropdown">
-                            <a href="." class="dropdown-toggle" data-toggle="dropdown">Contacts<span class="caret"></span></a>
+                            <a href="." class="dropdown-toggle" data-toggle="dropdown">Contacts <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{path('next_addressbook_contact_lister')}}">Lister</a></li>
-                                <li><a href="{{path('next_addressbook_contact_ajouter')}}">Ajouter</a></li>
+                                <li><a href="#">ContactsParGroupe</a></li>
+        
+                               <li><a href="{{path('next_addressbook_contact_ajouter')}}">Ajouter</a></li>
+                             
                             </ul>
-                        </li>
+                        </li>                        
+                        
+                        
+                        
+                      
+                       
                         <li class="dropdown">
                             <a href="." class="dropdown-toggle" data-toggle="dropdown">Societes<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -35,15 +45,17 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{path('next_addressbook_groupe_lister')}}">Lister</a></li>
                                 <li class="divider"></li>
-         {#                       
+         {#       Agnes en cours <--> TOTO  #} 
+                                {#
                                 {% for groupe in groupesMenu() %}
 
-                                    <li><a href="{{path('next_addressbook_contact_lister_par_groupe',{'groupe':groupe.nomgroupe|lower})}}">{{categorie.nom}}</a></li>
+                                    <li><a href="{{path('next_addressbook_contact_lister_par_groupe',{'groupe':groupe.nomgroupe|lower})}}">{{groupe.nomgroupe}}</a></li>
 
                                     {% endfor %}
-                                    #}
+                                #}
+               {#                     #}
                                     <li class="divider"></li>
-                                <li><a href="{{path('next_addressbook_groupe_lister')}}">Ajouter</a></li>
+                                <li><a href="{{path('next_addressbook_groupe_ajouter')}}">Ajouter</a></li>
                             </ul>
                         </li>
                     </ul>
